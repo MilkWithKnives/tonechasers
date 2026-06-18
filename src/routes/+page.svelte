@@ -20,7 +20,7 @@
 <!-- HERO -->
 <section class="relative min-h-[88vh] flex items-center overflow-hidden border-b border-stone-800">
 	<div class="absolute inset-0 bg-gradient-to-br from-stone-900 via-black to-black"></div>
-	<div class="absolute inset-0 opacity-[0.07]" style="background-image: radial-gradient(circle at 20% 30%, #ef4444 0, transparent 40%), radial-gradient(circle at 80% 70%, #ef4444 0, transparent 40%);"></div>
+	<div class="absolute inset-0 opacity-[0.07] hero-glow"></div>
 	<div class="relative max-w-7xl mx-auto px-5 lg:px-8 py-24">
 		<p class="text-xs tracking-[0.5em] uppercase text-red-500 mb-6">Grand Rapids, Michigan</p>
 		<h1 class="text-5xl sm:text-6xl lg:text-8xl font-bold text-white leading-[0.95] max-w-4xl">
@@ -39,11 +39,11 @@
 <!-- SHOP BY CATEGORY -->
 <section class="max-w-7xl mx-auto px-5 lg:px-8 py-16 md:py-20">
 	<div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-		{#each categories as cat}
+		{#each categories as cat (cat)}
 			<a href="/shop?category={cat}" class="group relative aspect-[4/3] overflow-hidden border border-stone-800 hover:border-red-600 transition-colors bg-gradient-to-br from-stone-800 to-black flex items-end p-5">
 				<div>
 					<p class="text-xs tracking-widest uppercase text-stone-500 group-hover:text-red-500 transition-colors">Shop</p>
-					<p class="text-2xl font-bold text-white" style="font-family: var(--font-display)">{cat}</p>
+					<p class="text-2xl font-bold text-white font-display">{cat}</p>
 				</div>
 				<span class="absolute top-4 right-4 text-stone-600 group-hover:text-red-500 transition-colors">→</span>
 			</a>
@@ -68,7 +68,7 @@
 					<div class="flex items-start justify-between gap-3">
 						<div>
 							<p class="text-xs tracking-widest uppercase text-stone-500">{g.brand} · {g.year}</p>
-							<p class="text-lg font-bold text-white" style="font-family: var(--font-display)">{g.model}</p>
+							<p class="text-lg font-bold text-white font-display">{g.model}</p>
 						</div>
 						<p class="text-lg font-bold text-red-500 whitespace-nowrap">{formatPrice(g.price)}</p>
 					</div>
@@ -81,9 +81,9 @@
 <!-- BUY SELL TRADE CONSIGN -->
 <section class="max-w-7xl mx-auto px-5 lg:px-8 py-16 md:py-24">
 	<div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-stone-800 border border-stone-800">
-		{#each ['Buy', 'Sell', 'Trade', 'Consign'] as word}
+		{#each ['Buy', 'Sell', 'Trade', 'Consign'] as word (word)}
 			<div class="bg-black p-8 text-center">
-				<p class="text-3xl md:text-4xl font-bold text-white" style="font-family: var(--font-display)">{word}</p>
+				<p class="text-3xl md:text-4xl font-bold text-white font-display">{word}</p>
 			</div>
 		{/each}
 	</div>
@@ -107,7 +107,7 @@
 				<a href="/shop/{g.slug}" class="group block">
 					<GuitarImage guitar={g} class="aspect-square mb-3 border border-stone-800 group-hover:border-red-600/60 transition-colors" />
 					<p class="text-xs tracking-widest uppercase text-stone-500">{g.brand}</p>
-					<p class="text-sm font-bold text-white leading-tight" style="font-family: var(--font-display)">{g.model}</p>
+					<p class="text-sm font-bold text-white leading-tight font-display">{g.model}</p>
 					<p class="text-sm text-red-500 mt-1">{formatPrice(g.price)}</p>
 				</a>
 			{/each}
@@ -133,9 +133,9 @@
 			<h2 class="text-3xl md:text-5xl font-bold text-white">Services</h2>
 		</div>
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-			{#each services as s}
+			{#each services as s (s.title)}
 				<div class="border border-stone-800 p-8 hover:border-red-600/60 transition-colors">
-					<h3 class="text-xl font-bold text-white mb-3" style="font-family: var(--font-display)">{s.title}</h3>
+					<h3 class="text-xl font-bold text-white mb-3 font-display">{s.title}</h3>
 					<p class="text-sm text-stone-400 leading-relaxed">{s.text}</p>
 				</div>
 			{/each}

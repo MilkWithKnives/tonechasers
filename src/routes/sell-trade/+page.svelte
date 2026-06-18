@@ -19,10 +19,10 @@
 	</p>
 
 	<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14">
-		{#each steps as s}
+		{#each steps as s (s.n)}
 			<div class="border border-stone-800 p-8">
-				<p class="text-4xl font-bold text-red-600 mb-4" style="font-family: var(--font-display)">{s.n}</p>
-				<h2 class="text-xl font-bold text-white mb-3" style="font-family: var(--font-display)">{s.title}</h2>
+				<p class="text-4xl font-bold text-red-600 mb-4 font-display">{s.n}</p>
+				<h2 class="text-xl font-bold text-white mb-3 font-display">{s.title}</h2>
 				<p class="text-sm text-stone-400 leading-relaxed">{s.text}</p>
 			</div>
 		{/each}

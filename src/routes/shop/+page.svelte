@@ -23,7 +23,7 @@
 	<!-- Category filter -->
 	<div class="flex flex-wrap gap-2 mb-10">
 		<a href="/shop" class="text-xs tracking-widest uppercase px-4 py-2 border transition-colors {!activeCategory ? 'border-red-600 text-red-500' : 'border-stone-700 text-stone-400 hover:border-white hover:text-white'}">All</a>
-		{#each categories as cat}
+		{#each categories as cat (cat)}
 			<a href="/shop?category={cat}" class="text-xs tracking-widest uppercase px-4 py-2 border transition-colors {activeCategory === cat ? 'border-red-600 text-red-500' : 'border-stone-700 text-stone-400 hover:border-white hover:text-white'}">{cat}</a>
 		{/each}
 	</div>
@@ -42,7 +42,7 @@
 					{/if}
 				</div>
 				<p class="text-xs tracking-widest uppercase text-stone-500">{g.brand} · {g.year}</p>
-				<p class="text-sm font-bold text-white leading-tight" style="font-family: var(--font-display)">{g.model}</p>
+				<p class="text-sm font-bold text-white leading-tight font-display">{g.model}</p>
 				<p class="text-sm {g.status === 'sold' ? 'text-stone-600 line-through' : 'text-red-500'} mt-1">{formatPrice(g.price)}</p>
 			</a>
 		{/each}

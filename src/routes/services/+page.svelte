@@ -32,9 +32,9 @@
 	</p>
 
 	<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-14">
-		{#each services as s}
+		{#each services as s (s.title)}
 			<div class="border border-stone-800 p-8 hover:border-red-600/60 transition-colors">
-				<h2 class="text-2xl font-bold text-white mb-3" style="font-family: var(--font-display)">{s.title}</h2>
+				<h2 class="text-2xl font-bold text-white mb-3 font-display">{s.title}</h2>
 				<p class="text-stone-400 leading-relaxed">{s.text}</p>
 			</div>
 		{/each}

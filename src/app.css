@@ -19,3 +19,15 @@
 		letter-spacing: 0.02em;
 	}
 }
+
+@layer components {
+	.font-display {
+		font-family: var(--font-display);
+	}
+
+	.hero-glow {
+		background-image:
+			radial-gradient(circle at 20% 30%, #ef4444 0, transparent 40%),
+			radial-gradient(circle at 80% 70%, #ef4444 0, transparent 40%);
+	}
+}

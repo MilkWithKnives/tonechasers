@@ -50,7 +50,7 @@
 					<dt class="text-[10px] tracking-widest uppercase text-stone-500">Finish</dt>
 					<dd class="text-sm text-white mt-1">{guitar.finish}</dd>
 				</div>
-				{#each guitar.specs as spec}
+				{#each guitar.specs as spec (spec.label)}
 					<div class="bg-black p-4">
 						<dt class="text-[10px] tracking-widest uppercase text-stone-500">{spec.label}</dt>
 						<dd class="text-sm text-white mt-1">{spec.value}</dd>
@@ -80,7 +80,7 @@
 					<a href="/shop/{g.slug}" class="group block">
 						<GuitarImage guitar={g} class="aspect-square mb-3 border border-stone-800 group-hover:border-red-600/60 transition-colors" />
 						<p class="text-xs tracking-widest uppercase text-stone-500">{g.brand}</p>
-						<p class="text-sm font-bold text-white leading-tight" style="font-family: var(--font-display)">{g.model}</p>
+						<p class="text-sm font-bold text-white leading-tight font-display">{g.model}</p>
 						<p class="text-sm text-red-500 mt-1">{formatPrice(g.price)}</p>
 					</a>
 				{/each}

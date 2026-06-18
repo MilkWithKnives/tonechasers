@@ -14,6 +14,14 @@
 	];
 
 	const isActive = (href: string) => $page.url.pathname === href || $page.url.pathname.startsWith(href + '/');
+
+	function toggleMobile() {
+		mobileOpen = !mobileOpen;
+	}
+
+	function closeMobile() {
+		mobileOpen = false;
+	}
 </script>
 
 <div class="min-h-screen flex flex-col">
@@ -21,12 +29,12 @@
 	<header class="sticky top-0 z-50 bg-black/90 backdrop-blur border-b border-stone-800">
 		<nav class="max-w-7xl mx-auto flex items-center justify-between h-16 px-5 lg:px-8">
 			<a href="/" class="flex items-center gap-2" aria-label="Tone Chasers Music">
-				<span class="inline-flex items-center justify-center w-8 h-8 rounded-sm bg-red-600 text-black font-bold text-sm" style="font-family: var(--font-display)">TC</span>
-				<span class="text-lg font-bold tracking-wide text-white hidden sm:block" style="font-family: var(--font-display)">TONE CHASERS</span>
+				<span class="inline-flex items-center justify-center w-8 h-8 rounded-sm bg-red-600 text-black font-bold text-sm font-display">TC</span>
+				<span class="text-lg font-bold tracking-wide text-white hidden sm:block font-display">TONE CHASERS</span>
 			</a>
 
 			<ul class="hidden md:flex items-center gap-7">
-				{#each nav as link}
+				{#each nav as link (link.href)}
 					<li>
 						<a href={link.href} class="text-xs tracking-widest uppercase transition-colors {isActive(link.href) ? 'text-red-500' : 'text-stone-400 hover:text-white'}">{link.label}</a>
 					</li>
@@ -35,7 +43,7 @@
 
 			<div class="flex items-center gap-3">
 				<a href="/contact" class="hidden sm:inline-flex text-xs tracking-widest uppercase bg-red-600 hover:bg-red-500 text-black font-bold px-4 py-2 transition-colors">Inquire</a>
-				<button class="md:hidden text-stone-300" aria-label="Menu" onclick={() => (mobileOpen = !mobileOpen)}>
+				<button class="md:hidden text-stone-300" aria-label="Menu" onclick={toggleMobile}>
 					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" /></svg>
 				</button>
 			</div>
@@ -43,8 +51,8 @@
 
 		{#if mobileOpen}
 			<ul class="md:hidden border-t border-stone-800 px-5 py-4 flex flex-col gap-4 bg-black">
-				{#each nav as link}
-					<li><a href={link.href} onclick={() => (mobileOpen = false)} class="text-sm tracking-widest uppercase {isActive(link.href) ? 'text-red-500' : 'text-stone-300'}">{link.label}</a></li>
+				{#each nav as link (link.href)}
+					<li><a href={link.href} onclick={closeMobile} class="text-sm tracking-widest uppercase {isActive(link.href) ? 'text-red-500' : 'text-stone-300'}">{link.label}</a></li>
 				{/each}
 			</ul>
 		{/if}
@@ -60,8 +68,8 @@
 		<div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
 			<div class="col-span-2 md:col-span-1">
 				<div class="flex items-center gap-2 mb-3">
-					<span class="inline-flex items-center justify-center w-8 h-8 rounded-sm bg-red-600 text-black font-bold text-sm" style="font-family: var(--font-display)">TC</span>
-					<span class="text-lg font-bold tracking-wide text-white" style="font-family: var(--font-display)">TONE CHASERS</span>
+					<span class="inline-flex items-center justify-center w-8 h-8 rounded-sm bg-red-600 text-black font-bold text-sm font-display">TC</span>
+					<span class="text-lg font-bold tracking-wide text-white font-display">TONE CHASERS</span>
 				</div>
 				<p class="text-sm text-stone-500 leading-relaxed">Vintage, rare & heavy gear. Buy · Sell · Trade · Consign. Downtown Grand Rapids.</p>
 			</div>
